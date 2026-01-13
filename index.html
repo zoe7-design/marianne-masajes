@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marianne • Masajes & Reconexión</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --fondo:#fcfaf8;
+    --texto:#2c2c2c;
+    --nude:#f3ede6;
+    --linea:#a6937c;
+}
+
+body {
+    margin:0;
+    background:var(--fondo);
+    font-family:'Montserrat',sans-serif;
+    color:var(--texto);
+    line-height:1.6;
+}
+
+h1,h2,h3 {
+    font-family:'Cormorant Garamond',serif;
+}
+
+/* HERO */
+.hero {
+    height:70vh;
+    background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),url('portada.jpg');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    text-align:center;
+}
+
+.hero h1 { font-size:3.4rem; margin:0; }
+
+.hero p {
+    font-size:1.1rem;              /* MÁS GRANDE */
+    letter-spacing:4px;
+    margin-top:12px;
+    text-transform:uppercase;
+}
+
+/* INTRO */
+.intro-seccion {
+    max-width:820px;
+    margin:110px auto 30px;
+    text-align:center;
+    padding:0 20px;
+}
+
+.intro-seccion h2 {
+    font-size:2.6rem;              /* MÁS GRANDE */
+    margin-bottom:14px;
+}
+
+.linea-decorativa {
+    width:45px;
+    height:2px;
+    background:var(--linea);
+    border:none;
+    margin:0 auto 30px;
+}
+
+.intro-seccion p {
+    font-size:1.05rem;
+    color:#555;
+    font-style:italic;
+}
+
+/* ESPACIO */
+.gran-espaciador {
+    height:180px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.6rem;
+    opacity:.6;
+}
+
+/* BLOQUES */
+section {
+    max-width:1100px;
+    margin:auto;
+    padding-bottom:120px;
+}
+
+.bloque-horizontal {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    margin-bottom:120px;
+    align-items:center;
+}
+
+.image-container img {
+    width:100%;
+    height:480px;
+    object-fit:cover;
+    box-shadow:15px 15px 0 var(--nude);
+}
+
+.text-block h3 {
+    font-size:2.5rem;
+}
+
+.text-block h3::before {
+    content:"✧ ";
+    color:var(--linea);
+}
+
+.precios {
+    list-style:none;
+    padding:0;
+    margin-bottom:25px;
+}
+
+.precios li {
+    display:flex;
+    justify-content:space-between;
+    padding:10px 0;
+    border-bottom:1px solid #eee;
+    font-weight:600;
+}
+
+.btn-luxury {
+    display:inline-block;
+    padding:16px 35px;
+    border:1px solid var(--texto);
+    text-decoration:none;
+    color:var(--texto);
+    letter-spacing:2px;
+    font-size:.75rem;
+    transition:
+        background .3s ease,
+        color .3s ease,
+        transform .3s ease;
+}
+
+.btn-luxury:hover {
+    background:var(--texto);
+    color:white;
+    transform:translateY(-2px);
+}
+
+/* MODAL */
+.modal {
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:999;
+}
+.modal {
+    backdrop-filter: blur(3px);
+}
+ 
+.modal.active { display:flex; }
+
+.modal-content {
+    background:var(--fondo);
+    max-width:500px;
+    width:90%;
+    padding:40px;
+    text-align:center;
+    position:relative;
+}
+
+.modal-content h3 { font-size:2.2rem; }
+
+.select-tiempo {
+    width:100%;
+    padding:12px;
+    margin:20px 0;
+}
+
+.precio-modal {
+    font-size:1.3rem;
+    margin-bottom:25px;
+    font-weight:600;
+}
+
+.cerrar {
+    position:absolute;
+    top:15px;
+    right:20px;
+    cursor:pointer;
+}
+
+/* GIFT CARD */
+.gift-black {
+    background:#1a1a1a;
+    color:white;
+    text-align:center;
+    padding:60px 5% 70px; /* MUCHO más baja */
+}
+
+.gift-black h2 {
+    font-size:2rem;       /* más íntimo */
+    margin-bottom:14px;
+    font-weight:600;
+}
+
+.gift-black p {
+    opacity:.75;
+    font-style:italic;
+    max-width:520px;
+    margin:0 auto 26px;
+    font-size:.95rem;
+}
+
+.gift-black .btn-luxury {
+    padding:14px 30px;
+    font-size:.7rem;
+}
+
+
+
+/* FOOTER FINAL */
+footer {
+    text-align:center;
+    padding:70px 20px 100px;
+}
+
+footer p {
+    font-size:.75rem;
+    letter-spacing:3px;
+    color:#888;
+    text-transform:uppercase;
+}
+
+.text-block h3 {
+    letter-spacing:-0.5px;
+}
+
+.text-block p {
+    font-size:1.02rem;
+    line-height:1.7;
+}
+
+.modal-content {
+    animation: aparecer .4s ease-out;
+}
+@media (max-width:600px){
+
+    .hero {
+        height:65vh;
+        padding:0 20px;
+    }
+
+    .hero h1 {
+        font-size:2.6rem;
+    }
+
+    .hero p {
+        font-size:.9rem;
+        letter-spacing:3px;
+    }
+
+    .intro-seccion h2 {
+        font-size:2.2rem;
+    }
+
+    .intro-seccion p {
+        font-size:1rem;
+    }
+
+    .image-container img {
+        height:360px;
+    }
+
+    .text-block h3 {
+        font-size:2.1rem;
+    }
+
+    .modal-content {
+        padding:30px 25px;
+    }
+
+    .gift-black {
+        padding:50px 20px 60px;
+    }
+}
+
+@keyframes aparecer {
+    from {
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to {
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.modal-content p {
+    line-height:1.7;
+    font-size:.95rem;
+}
+
+/* WHATSAPP */
+.wsp-float {
+    position:fixed;
+    bottom:30px;
+    right:30px;
+    width:55px;
+    height:55px;
+    background:#25d366;
+    color:white;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
+    text-decoration:none;
+}
+
+@media(max-width:850px){
+    .bloque-horizontal { grid-template-columns:1fr; }
+}
+/* TEXTURA SUAVE DE FONDO */
+body::before {
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+        radial-gradient(rgba(0,0,0,0.02) 1px, transparent 1px);
+    background-size: 120px 120px, 60px 60px;
+    pointer-events:none;
+    z-index:-1;
+}
+
+</style>
+</head>
+
+<body>
+
+<a class="wsp-float" href="https://wa.me/5491164423192" target="_blank">✆</a>
+
+<header class="hero">
+    <div>
+        <h1>Marianne Masajes</h1>
+        <p>Tu espacio de reconexión</p>
+    </div>
+</header>
+
+<div class="intro-seccion">
+    <h2>Mi forma de trabajar</h2>
+    <hr class="linea-decorativa">
+    <p>
+        Cada sesión es distinta. <br>
+        Escucho tu cuerpo, tu momento y lo que necesitás hoy integrando distintas técnicas
+        para acompañar procesos físicos, emocionales y energéticos.
+        <br><br>
+        A veces el cuerpo pide alivio, otras descanso profundo,
+        otras simplemente un espacio para volver a habitarse.
+    </p>
+</div>
+
+<div class="gran-espaciador">𓆸</div>
+
+<section>
+
+<!-- FUSIÓN -->
+<div class="bloque-horizontal">
+    <div class="image-container">
+        <img src="masaje-fusion.jpg">
+    </div>
+    <div class="text-block">
+        <h3>Masaje Fusión</h3>
+        <p>
+            Sesión personalizada que integra diversas técnicas según tu necesidad.
+            Ideal para aliviar dolores, liberar tensiones o equilibrar tu energía vital.
+        </p>
+        <ul class="precios">
+            <li>75 min <span>$30.000</span></li>
+            <li>90 min <span>$40.000</span></li>
+            <li>120 min <span>$50.000</span></li>
+        </ul>
+        <a href="#" class="btn-luxury" onclick="abrirModal('fusion')">Ver más</a>
+    </div>
+</div>
+
+<!-- DESCONTRACTURANTE -->
+<div class="bloque-horizontal">
+    <div class="image-container">
+        <img src="masaje-descontracturante.jpg">
+    </div>
+    <div class="text-block">
+        <h3>Masaje Descontracturante</h3>
+        <p>
+            Enfocado en liberar tensiones profundas y contracturas crónicas.
+            Trabajo intenso y consciente para devolver movilidad y bienestar.
+        </p>
+        <ul class="precios">
+            <li>75 min <span>$30.000</span></li>
+            <li>90 min <span>$40.000</span></li>
+        </ul>
+        <a href="#" class="btn-luxury" onclick="abrirModal('descontracturante')">Ver más</a>
+    </div>
+</div>
+
+<!-- CHAKRAS -->
+<div class="bloque-horizontal">
+    <div class="image-container">
+        <img src="masaje-chakras.jpg">
+    </div>
+    <div class="text-block">
+        <h3>Armonización de Chakras</h3>
+        <p>
+            Equilibrio integral de los centros energéticos.
+            Una experiencia sutil y profunda para reconectar con la calma,
+            la claridad mental y el bienestar general.
+        </p>
+        <ul class="precios">
+            <li>Sesión completa <span>$25.000</span></li>
+        </ul>
+        <a href="#" class="btn-luxury" onclick="abrirModal('chakras')">Ver más</a>
+    </div>
+</div>
+
+</section>
+
+
+<!-- GIFT CARD -->
+ <div class="gran-espaciador">☾</div>
+
+<div class="gift-black">
+    <div style="font-size:1.5rem;margin-bottom:10px;">☾</div>
+    <h2>Gift Cards</h2>
+    <p>
+        Regalá bienestar.<br>
+        Las gift cards pueden ser por un masaje específico o por un monto a elección.
+        Ideales para cumpleaños, fechas especiales o simplemente regalar un momento de cuidado.
+    </p>
+    <a href="https://wa.me/5491164423192?text=Hola!%20Quisiera%20regalar%20una%20Gift%20Card"
+       class="btn-luxury" target="_blank">Solicitar regalo</a>
+</div>
+<div class="gran-espaciador">𓂀</div>
+
+<footer>
+    <p>Florida • Vicente López • Zona Norte</p>
+</footer>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <span class="cerrar" onclick="cerrarModal()">✕</span>
+        <h3 id="modalTitulo"></h3>
+        <p id="modalTexto"></p>
+        <select id="tiempo" class="select-tiempo" onchange="actualizarPrecio()"></select>
+        <div class="precio-modal" id="precio"></div>
+        <a id="btnWsp" class="btn-luxury" target="_blank">Reservar por WhatsApp</a>
+    </div>
+</div>
+
+<script>
+const datos = {
+    fusion:{
+        titulo:"Masaje Fusión",
+        texto:"Un espacio creado especialmente para vos. El Masaje Fusión combina distintas técnicas según lo que tu cuerpo y tu energía necesitan en ese momento. Podés llevarte alivio físico, descanso profundo o una sensación de equilibrio general. Cada sesión es distinta, porque no trabajamos sobre un protocolo, sino sobre tu presente.",
+        precios:{75:30000,90:40000,120:50000}
+    },
+    descontracturante:{
+        titulo:"Masaje Descontracturante",
+        texto:"Trabajo profundo y consciente sobre las zonas de mayor tensión. Utiliza técnicas de tejido profundo, presión localizada y estiramientos suaves para liberar contracturas y mejorar la movilidad. Ideal si sentís el cuerpo cargado, rígido o con dolor acumulado.",
+        precios:{75:30000,90:40000}
+    },
+    chakras:{
+        titulo:"Armonización de Chakras",
+        texto:"Una experiencia sutil y profunda que trabaja sobre el campo energético. A través de imposición de manos, respiración y técnicas de armonización, se busca equilibrar los centros energéticos, generando una sensación de calma, claridad mental y conexión interior. Puede realizarse de forma presencial o a distancia.",
+        precios:{60:25000}
+    }
+};
+
+
+let masajeActual="";
+
+function abrirModal(tipo){
+    masajeActual=tipo;
+    const d=datos[tipo];
+    modalTitulo.innerText=d.titulo;
+    modalTexto.innerText=d.texto;
+    tiempo.innerHTML="";
+    for(let t in d.precios){
+        tiempo.innerHTML+=`<option value="${t}">${t} minutos</option>`;
+    }
+    actualizarPrecio();
+    modal.classList.add("active");
+}
+
+function cerrarModal(){
+    modal.classList.remove("active");
+}
+
+function actualizarPrecio(){
+    const t=tiempo.value;
+    const p=datos[masajeActual].precios[t];
+    precio.innerText="$"+p.toLocaleString();
+    btnWsp.href=`https://wa.me/5491164423192?text=Hola!%20Quiero%20reservar%20${datos[masajeActual].titulo}%20de%20${t}%20minutos`;
+}
+</script>
+
+</body>
+</html>
